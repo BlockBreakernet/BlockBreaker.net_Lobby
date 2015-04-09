@@ -1,0 +1,8 @@
+name: Lobby
+version: 1.0
+author: lusu007
+description: Managed die Lobby und ihre Funktionen
+
+main: net.blockbreaker.lobby.Lobby
+load: POSTWORLD
+
