@@ -1,5 +1,6 @@
 package net.blockbreaker.lobby.api.locations;
 
+import net.blockbreaker.lobby.Lobby;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.Location;
@@ -20,8 +21,15 @@ public class Spawn {
 
     public static void set(Player p) {
 
-        File file = new File("/plugins/Lobby/Locations", "spawn.yml");
+        File file = new File(Lobby.getInstance().getDataFolder() + "/Locations", "spawn.yml");
         FileConfiguration cfg = YamlConfiguration.loadConfiguration(file);
+
+        try {
+            cfg.save(file);
+        } catch (IOException e) {
+            p.sendMessage(ChatColor.DARK_RED + "Die Location konnte nicht gespeichert werden.");
+            console.sendMessage(ChatColor.DARK_RED + "Die Location konnte nicht gespeichert werden.");
+        }
 
         Location loc = p.getEyeLocation();
 

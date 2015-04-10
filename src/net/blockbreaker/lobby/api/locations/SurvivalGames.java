@@ -1,5 +1,6 @@
 package net.blockbreaker.lobby.api.locations;
 
+import net.blockbreaker.lobby.Lobby;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.Location;
@@ -21,7 +22,7 @@ public class SurvivalGames {
 
     public static void set(Player p) {
 
-        File file = new File("/plugins/Lobby/Locations", "sg.yml");
+        File file = new File(Lobby.getInstance().getDataFolder() + "/Locations", "sg.yml");
         FileConfiguration cfg = YamlConfiguration.loadConfiguration(file);
 
         Location loc = p.getEyeLocation();
