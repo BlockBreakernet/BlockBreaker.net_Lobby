@@ -1,6 +1,7 @@
 package net.blockbreaker.lobby.system.events;
 
 import net.blockbreaker.lobby.api.mysql.MySQLMethods;
+import net.blockbreaker.lobby.api.player.InventoryClear;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -16,9 +17,11 @@ public class JoinListener implements Listener {
         Player p = e.getPlayer();
 
         if(MySQLMethods.isNewbie(p)) {
-            p.sendMessage("Herzlich Willkommen");
+
         } else {
 
         }
+
+        InventoryClear.joinPlayer(p);
     }
 }
