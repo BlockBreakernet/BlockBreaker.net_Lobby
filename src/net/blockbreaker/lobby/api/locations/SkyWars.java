@@ -54,7 +54,7 @@ public class SkyWars {
 
     public static void teleport(Player p) {
 
-        File file = new File("/plugins/Lobby/Locations", "sw.yml");
+        File file = new File(Lobby.getInstance().getDataFolder() + "/Locations", "sw.yml");
         FileConfiguration cfg = YamlConfiguration.loadConfiguration(file);
 
         String world = cfg.getString("sw.world");

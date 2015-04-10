@@ -53,7 +53,7 @@ public class SafeTheCake {
 
     public static void teleport(Player p) {
 
-        File file = new File("/plugins/Lobby/Locations", "stc.yml");
+        File file = new File(Lobby.getInstance().getDataFolder() + "/Locations", "stc.yml");
         FileConfiguration cfg = YamlConfiguration.loadConfiguration(file);
 
         String world = cfg.getString("stc.world");

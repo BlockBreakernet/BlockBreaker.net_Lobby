@@ -53,7 +53,7 @@ public class PremiumSector {
 
     public static void teleport(Player p) {
 
-        File file = new File("/plugins/Lobby/Locations", "premium.yml");
+        File file = new File(Lobby.getInstance().getDataFolder() + "/Locations", "premium.yml");
         FileConfiguration cfg = YamlConfiguration.loadConfiguration(file);
 
         String world = cfg.getString("premium.world");

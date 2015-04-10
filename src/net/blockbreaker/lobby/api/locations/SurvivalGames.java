@@ -54,7 +54,7 @@ public class SurvivalGames {
 
     public static void teleport(Player p) {
 
-        File file = new File("/plugins/Lobby/Locations", "sg.yml");
+        File file = new File(Lobby.getInstance().getDataFolder() + "/Locations", "sg.yml");
         FileConfiguration cfg = YamlConfiguration.loadConfiguration(file);
 
         String world = cfg.getString("sg.world");

@@ -60,7 +60,7 @@ public class Spawn {
 
     public static void teleport(Player p) {
 
-        File file = new File("/plugins/Lobby/Locations", "spawn.yml");
+        File file = new File(Lobby.getInstance().getDataFolder() + "/Locations", "spawn.yml");
         FileConfiguration cfg = YamlConfiguration.loadConfiguration(file);
 
         String world = cfg.getString("spawn.world");

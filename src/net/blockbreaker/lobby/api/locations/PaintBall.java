@@ -53,7 +53,7 @@ public class PaintBall {
 
     public static void teleport(Player p) {
 
-        File file = new File("/plugins/Lobby/Locations", "pb.yml");
+        File file = new File(Lobby.getInstance().getDataFolder() + "/Locations", "pb.yml");
         FileConfiguration cfg = YamlConfiguration.loadConfiguration(file);
 
         String world = cfg.getString("pb.world");

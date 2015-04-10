@@ -53,7 +53,7 @@ public class NewbieSpawn {
 
     public static void teleport(Player p) {
 
-        File file = new File("/plugins/Lobby/Locations", "newbie.yml");
+        File file = new File(Lobby.getInstance().getDataFolder() + "/Locations", "newbie.yml");
         FileConfiguration cfg = YamlConfiguration.loadConfiguration(file);
 
         String world = cfg.getString("newbie.world");

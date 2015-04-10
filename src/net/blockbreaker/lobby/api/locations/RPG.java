@@ -54,7 +54,7 @@ public class RPG {
 
     public static void teleport(Player p) {
 
-        File file = new File("/plugins/Lobby/Locations", "rpg.yml");
+        File file = new File(Lobby.getInstance().getDataFolder() + "/Locations", "rpg.yml");
         FileConfiguration cfg = YamlConfiguration.loadConfiguration(file);
 
         String world = cfg.getString("rpg.world");

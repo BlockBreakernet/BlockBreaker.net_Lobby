@@ -4,29 +4,53 @@ import org.bukkit.OfflinePlayer;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.text.DateFormat;
+import java.util.Locale;
 
 /**
  * Created by Lukas on 09.04.2015.
  */
 public class MySQLMethods {
 
-    public static boolean isNewbie(OfflinePlayer player) {
-        String uuid = player.getUniqueId().toString();
+    public static boolean isInDataBase(OfflinePlayer target) {
+        String uuid = target.getUniqueId().toString();
 
-        boolean isNewbie = false;
+        boolean isInDatabase = false;
 
         ResultSet rs = MySQL.getResult("SELECT uuid FROM data WHERE uuid = '" + uuid + "'");
 
         try {
             if(!rs.next()) {
-                isNewbie = true;
+                isInDatabase = true;
             } else {
-                isNewbie = false;
+                isInDatabase = false;
             }
         } catch (SQLException e) {
             e.printStackTrace();
         }
 
-        return Boolean.valueOf(isNewbie).booleanValue();
+        return Boolean.valueOf(!isInDatabase).booleanValue();
+    }
+
+    public static void createUserData(OfflinePlayer pp) {
+        String UUID = pp.getUniqueId().toString();
+
+        if(isInDataBase(pp)) {
+
+            DateFormat dmy = DateFormat.getDateInstance(DateFormat.SHORT, Locale.GERMANY);
+            String lastLoginAsString = dmy.format(System.currentTimeMillis());
+
+            boolean nick = false;
+            int logincounter = 0;
+
+            ResultSet rs = MySQL.getResult("SELECT uuid FROM data WHERE uuid = '" + UUID + "'");
+            try {
+                if (!rs.next()) {
+                    MySQL.update("INSERT INTO data VALUES('" + pp.getName() + "', '" + UUID + "', '" + lastLoginAsString + "', '" + logincounter + "' , " + nick + ")");
+                }
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
     }
 }
