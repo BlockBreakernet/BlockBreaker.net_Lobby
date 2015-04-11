@@ -1,4 +1,4 @@
-package net.blockbreaker.lobby.item;
+package net.blockbreaker.lobby.api.item;
 
 import java.util.ArrayList;
 import java.util.List;

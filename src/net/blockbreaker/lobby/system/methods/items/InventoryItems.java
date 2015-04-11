@@ -1,7 +1,7 @@
 package net.blockbreaker.lobby.system.methods.items;
 
+import org.bukkit.ChatColor;
 import org.bukkit.Material;
-import org.bukkit.enchantments.Enchantment;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
@@ -20,10 +20,10 @@ public class InventoryItems {
 
         ItemStack navigator = new ItemStack(Material.COMPASS);
         ItemMeta navigatormeta = navigator.getItemMeta();
-        navigatormeta.setDisplayName("§6Navigator");
+        navigatormeta.setDisplayName(ChatColor.GOLD + "Navigator");
 
         ArrayList<String> navigatorlore = new ArrayList<>();
-        navigatorlore.add("§3Auf zu den Spielen!");
+        navigatorlore.add(ChatColor.DARK_AQUA + "Auf zu den Spielen!");
         navigatormeta.setLore(navigatorlore);
 
         navigator.setItemMeta(navigatormeta);
@@ -32,10 +32,10 @@ public class InventoryItems {
 
         ItemStack hider = new ItemStack(Material.BLAZE_ROD);
         ItemMeta hidermeta = hider.getItemMeta();
-        hidermeta.setDisplayName("§cSpieler verstecken");
+        hidermeta.setDisplayName(ChatColor.RED + "Spieler verstecken");
 
         ArrayList<String> hiderlore = new ArrayList<>();
-        hiderlore.add("§6Verstecke die Spieler");
+        hiderlore.add(ChatColor.GOLD + "Verstecke die Spieler");
         hidermeta.setLore(hiderlore);
 
         hider.setItemMeta(hidermeta);
@@ -44,58 +44,56 @@ public class InventoryItems {
 
         ItemStack schild = new ItemStack(Material.DIAMOND);
         ItemMeta schildmeta = schild.getItemMeta();
-        schildmeta.setDisplayName("§5Schutzschild");
+        schildmeta.setDisplayName(ChatColor.DARK_PURPLE + "Schutzschild");
 
         ArrayList<String> schildlore = new ArrayList<>();
-        schildlore.add("§4Schütze dich vor den nervenden Spielern");
+        schildlore.add(ChatColor.DARK_RED + "Schütze dich vor den nervenden Spielern");
         schildmeta.setLore(schildlore);
 
         schild.setItemMeta(schildmeta);
 
         //====================================================
 
-        ItemStack nicker = new ItemStack(Material.NAME_TAG);
-        ItemMeta nickermeta = nicker.getItemMeta();
-        nickermeta.setDisplayName("§eAuto-Nicker");
-
-        ArrayList<String> nickerlore = new ArrayList<>();
-        nickerlore.add("§5Lass dich automatisch umbennen, damit du nicht erkannt wirst");
-        nickermeta.setLore(nickerlore);
-
-        nicker.setItemMeta(nickermeta);
-
-        //====================================================
-
         ItemStack friends = new ItemStack(Material.SKULL_ITEM, 1, (short) 3);
         SkullMeta friendsmeta = (SkullMeta) friends.getItemMeta();
-        friendsmeta.setDisplayName("§6Freunde");
+        friendsmeta.setDisplayName(ChatColor.GOLD + "Freunde");
 
         friendsmeta.setOwner(p.getDisplayName());
 
         ArrayList<String> friendslore = new ArrayList<>();
-        friendslore.add("§2Hast du Freunde? Dann findest du sie hier");
+        friendslore.add(ChatColor.GOLD + "Hast du Freunde? Dann findest du sie hier");
         friendsmeta.setLore(friendslore);
 
         friends.setItemMeta(friendsmeta);
 
         //====================================================
 
+        ItemStack silent = new ItemStack(Material.FEATHER);
+        ItemMeta silentmeta = silent.getItemMeta();
+        silentmeta.setDisplayName(ChatColor.DARK_PURPLE + "Silent Lobby");
+
+        ArrayList<String> silentlore = new ArrayList<>();
+        friendslore.add(ChatColor.DARK_GREEN + "Hast du Freunde? Dann findest du sie hier");
+        silentmeta.setLore(silentlore);
+
+        silent.setItemMeta(silentmeta);
+
+        //====================================================
 
 
-        //Setzt Normalo Items
-        p.getInventory().setItem(0, navigator);
-        p.getInventory().setItem(1, hider);
-        p.getInventory().setItem(8, friends);
+        p.getInventory().setItem(0, friends);
+        p.getInventory().setItem(4, navigator);
+        p.getInventory().setItem(8, hider);
 
-        //Setzt Schild Item
-        if(p.hasPermission("server.schild")) {
-            p.getInventory().setItem(2, schild);
+        if(p.hasPermission("server.silent.item")) {
+            p.getInventory().setItem(1, silent);
         }
 
-        //Setzt Nicker Item
-        if(p.hasPermission("server.nicker")) {
-            p.getInventory().setItem(4, nicker);
+        if(p.hasPermission("server.player.protection")) {
+            p.getInventory().setItem(7, schild);
         }
+
+
 
         p.updateInventory();
     }

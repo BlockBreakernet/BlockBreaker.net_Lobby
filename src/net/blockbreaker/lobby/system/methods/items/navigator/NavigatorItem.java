@@ -48,6 +48,7 @@ public class NavigatorItem implements Listener {
 
         ItemStack rpg = new ItemStack(Material.MAP);
         ItemMeta rpgmeta = rpg.getItemMeta();
+        rpgmeta.addItemFlags(ItemFlag.HIDE_ATTRIBUTES);
         rpgmeta.setDisplayName(ChatColor.RED + "RPG");
         List<String> rpglore = new ArrayList<String>();
         rpglore.add(ChatColor.AQUA + "Zum RPG Server");
