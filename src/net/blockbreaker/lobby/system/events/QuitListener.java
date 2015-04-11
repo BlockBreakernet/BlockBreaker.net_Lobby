@@ -18,7 +18,7 @@ public class QuitListener implements Listener {
 
         Bukkit.getOnlinePlayers().forEach(player -> {
             if(player.hasPermission("server.join.message")) {
-                e.setQuitMessage(ChatColor.GOLD + "Der Spieler " + ChatColor.RESET + p.getDisplayName() + ChatColor.GOLD + " hat das Netzwerk betreten.");
+                e.setQuitMessage(ChatColor.GOLD + "Der Spieler " + ChatColor.RESET + p.getDisplayName() + ChatColor.GOLD + " hat das Netzwerk verlassen.");
             }
         });
     }

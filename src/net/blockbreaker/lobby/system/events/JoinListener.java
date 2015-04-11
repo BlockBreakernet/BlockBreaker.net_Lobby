@@ -40,6 +40,6 @@ public class JoinListener implements Listener {
             Spawn.teleport(p);
         }
 
-        TitleAPI.sendTitle(p, 1*20, 2*20, 1*20, "Herzlich Willkommen, " + p.getName() + " auf dem", "BlockBreaker.net Netzwerk.");
+        TitleAPI.sendTitle(p, 1*20, 2*20, 1*20, ChatColor.YELLOW + "Herzlich Willkommen" + ChatColor.GRAY + ", " + ChatColor.RESET + p.getDisplayName() + ChatColor.YELLOW + " auf dem", ChatColor.YELLOW + "BlockBreaker.net Netzwerk.");
     }
 }

@@ -5,6 +5,7 @@ import net.blockbreaker.lobby.api.mysql.MySQLFile;
 import net.blockbreaker.lobby.api.register.RegisterUtil;
 import net.blockbreaker.lobby.system.commands.SetCommand;
 import net.blockbreaker.lobby.system.events.*;
+import net.blockbreaker.lobby.system.features.DoubleJump;
 import net.blockbreaker.lobby.system.methods.items.hider.HiderEvents;
 import net.blockbreaker.lobby.system.methods.items.navigator.events.NavigatorClickItem;
 import net.blockbreaker.lobby.system.methods.items.navigator.events.NavigatorInteract;
@@ -40,7 +41,7 @@ public class Lobby extends JavaPlugin {
 
         //Registriert Listener/Commands
         RegisterUtil<Lobby> register = new RegisterUtil<Lobby>(this);
-        register.registerEvents(JoinListener.class, InventoryClick.class, Hunger.class, NavigatorInteract.class, NavigatorClickItem.class, PlayerDamage.class, HiderEvents.class, PlayerDrop.class, SilentLobby.class, Shield.class, QuitListener.class);
+        register.registerEvents(JoinListener.class, InventoryClick.class, Hunger.class, NavigatorInteract.class, NavigatorClickItem.class, PlayerDamage.class, HiderEvents.class, PlayerDrop.class, SilentLobby.class, Shield.class, QuitListener.class, DoubleJump.class);
         register.registerCommand("set", "Setzte alle Locations der Spielmodi", new SetCommand(), "server.set");
 
         //Erstellt Default MySQL Config´s und liest Daten aus
