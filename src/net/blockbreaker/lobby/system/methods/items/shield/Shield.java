@@ -59,7 +59,7 @@ public class Shield implements Listener {
                                         double y = by - ay;
                                         double z = bz - az;
 
-                                        Vector v = new Vector(x, y, z).normalize().multiply(2D).setY(1D);
+                                        Vector v = new Vector(x, y, z).normalize().multiply(1D).setY(1D);
 
                                         if (target.hasPermission("server.bypass.schild") | target.isOp()) {
                                             return;

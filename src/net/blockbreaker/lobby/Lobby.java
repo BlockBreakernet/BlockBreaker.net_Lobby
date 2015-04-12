@@ -13,6 +13,7 @@ import net.blockbreaker.lobby.system.methods.items.shield.Shield;
 import net.blockbreaker.lobby.system.methods.items.silent.SilentLobby;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
+import org.bukkit.event.block.BlockEvent;
 import org.bukkit.plugin.java.JavaPlugin;
 import org.bukkit.scheduler.BukkitRunnable;
 
@@ -41,7 +42,7 @@ public class Lobby extends JavaPlugin {
 
         //Registriert Listener/Commands
         RegisterUtil<Lobby> register = new RegisterUtil<Lobby>(this);
-        register.registerEvents(JoinListener.class, InventoryClick.class, Hunger.class, NavigatorInteract.class, NavigatorClickItem.class, PlayerDamage.class, HiderEvents.class, PlayerDrop.class, SilentLobby.class, Shield.class, QuitListener.class, DoubleJump.class);
+        register.registerEvents(JoinListener.class, InventoryClick.class, Hunger.class, NavigatorInteract.class, NavigatorClickItem.class, PlayerDamage.class, HiderEvents.class, ItemEvents.class, SilentLobby.class, Shield.class, QuitListener.class, DoubleJump.class, IceMelt.class, EntityEvents.class, BlockEvents.class, InventoryEvents.class, PaintingEvents.class);
         register.registerCommand("set", "Setzte alle Locations der Spielmodi", new SetCommand(), "server.set");
 
         //Erstellt Default MySQL Config´s und liest Daten aus
