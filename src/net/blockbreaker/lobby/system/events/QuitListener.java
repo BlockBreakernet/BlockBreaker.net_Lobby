@@ -1,5 +1,6 @@
 package net.blockbreaker.lobby.system.events;
 
+import net.blockbreaker.lobby.Lobby;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.entity.Player;
@@ -21,5 +22,10 @@ public class QuitListener implements Listener {
                 e.setQuitMessage(ChatColor.GOLD + "Der Spieler " + ChatColor.RESET + p.getDisplayName() + ChatColor.GOLD + " hat das Netzwerk verlassen.");
             }
         });
+
+        //Stop TimeSync
+        if(Bukkit.getOnlinePlayers().size() == 0) {
+            Bukkit.getScheduler().cancelTask(Lobby.getInstance().time);
+        }
     }
 }

@@ -1,10 +1,12 @@
 package net.blockbreaker.lobby.system.events;
 
 import com.connorlinfoot.titleapi.TitleAPI;
+import net.blockbreaker.lobby.Lobby;
 import net.blockbreaker.lobby.api.locations.NewbieSpawn;
 import net.blockbreaker.lobby.api.locations.Spawn;
 import net.blockbreaker.lobby.api.mysql.MySQLMethods;
 import net.blockbreaker.lobby.api.player.InventoryClear;
+import net.blockbreaker.lobby.system.features.TimeSync;
 import net.blockbreaker.lobby.system.methods.items.InventoryItems;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
@@ -40,6 +42,11 @@ public class JoinListener implements Listener {
             Spawn.teleport(p);
         }
 
-        TitleAPI.sendTitle(p, 1*20, 2*20, 1*20, ChatColor.YELLOW + "Herzlich Willkommen" + ChatColor.GRAY + ", " + ChatColor.RESET + p.getDisplayName() + ChatColor.YELLOW + " auf dem", ChatColor.YELLOW + "BlockBreaker.net Netzwerk.");
+        TitleAPI.sendTitle(p, 1 * 20, 2 * 20, 1 * 20, ChatColor.YELLOW + "Herzlich Willkommen" + ChatColor.GRAY + ", " + ChatColor.RESET + p.getDisplayName() + ChatColor.YELLOW + " auf dem", ChatColor.YELLOW + "BlockBreaker.net Netzwerk.");
+
+        //Start TimeSync
+        if (Bukkit.getOnlinePlayers().size() >= 1) {
+            Lobby.getInstance().time = Bukkit.getScheduler().scheduleSyncRepeatingTask(Lobby.getInstance(), new TimeSync(), 0, 20 * 1);
+        }
     }
 }
