@@ -6,6 +6,8 @@ import net.blockbreaker.lobby.api.register.RegisterUtil;
 import net.blockbreaker.lobby.system.commands.SetCommand;
 import net.blockbreaker.lobby.system.events.*;
 import net.blockbreaker.lobby.system.features.DoubleJump;
+import net.blockbreaker.lobby.system.features.JumpPlates;
+import net.blockbreaker.lobby.system.methods.items.friends.Friends;
 import net.blockbreaker.lobby.system.methods.items.hider.HiderEvents;
 import net.blockbreaker.lobby.system.methods.items.navigator.events.NavigatorClickItem;
 import net.blockbreaker.lobby.system.methods.items.navigator.events.NavigatorInteract;
@@ -46,8 +48,9 @@ public class Lobby extends JavaPlugin {
         RegisterUtil<Lobby> register = new RegisterUtil<Lobby>(this);
         register.registerEvents(JoinListener.class, InventoryClick.class, Hunger.class, NavigatorInteract.class, NavigatorClickItem.class, PlayerDamage.class, HiderEvents.class, ItemEvents.class,
                                 SilentLobby.class, Shield.class, QuitListener.class, DoubleJump.class, IceMelt.class, EntityEvents.class, BlockEvents.class, InventoryEvents.class, PaintingEvents.class,
-                                KickListener.class);
+                                KickListener.class, JumpPlates.class, Friends.class);
         register.registerCommand("set", "Setzte alle Locations der Spielmodi", new SetCommand(), "server.set");
+        register.registerCommand("holo", "Setzt alle Hologramme", new SetCommand(), "server.setholo");
 
         //Erstellt Default MySQL Config´s und liest Daten aus
         MySQLFile file = new MySQLFile();

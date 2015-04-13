@@ -19,9 +19,29 @@ public class JumpPlates implements Listener {
         Player p = e.getPlayer();
 
         if(p.getLocation().getBlock().getType() == Material.GOLD_PLATE) {
+            if(p.getLocation().subtract(0.0D, 1.0D, 0.0D).getBlock().getType() == Material.STONE) {
+
+                Vector v = p.getLocation().getDirection().multiply(4.0D).setY(1.0D);
+                p.setVelocity(v);
+
+                ParticleEffect.PORTAL.display(p.getLocation(), 1, 1, 1, 1, 1, 50);
+
+                p.playSound(p.getLocation(), Sound.ENDERDRAGON_WINGS, 1.0F, 1.0F);
+            }
+
             if(p.getLocation().subtract(0.0D, 1.0D, 0.0D).getBlock().getType() == Material.COBBLESTONE) {
 
-                Vector v = p.getLocation().getDirection().multiply(2.0D).setY(1.0D);
+                Vector v = p.getLocation().getDirection().multiply(5.0D).setY(1.0D);
+                p.setVelocity(v);
+
+                ParticleEffect.PORTAL.display(p.getLocation(), 1, 1, 1, 1, 1, 50);
+
+                p.playSound(p.getLocation(), Sound.ENDERDRAGON_WINGS, 1.0F, 1.0F);
+            }
+
+            if(p.getLocation().subtract(0.0D, 1.0D, 0.0D).getBlock().getType() == Material.GOLD_BLOCK) {
+
+                Vector v = p.getLocation().getDirection().multiply(7.0D).setY(1.0D);
                 p.setVelocity(v);
 
                 ParticleEffect.PORTAL.display(p.getLocation(), 1, 1, 1, 1, 1, 50);
