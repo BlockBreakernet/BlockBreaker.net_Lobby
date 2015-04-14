@@ -16,6 +16,6 @@ public class SetHolo implements CommandExecutor {
         Player p = (Player) sender;
 
         NewbieSpawnHolo.setNewbieHolo1(p);
-        return false;
+        return true;
     }
 }

@@ -19,7 +19,7 @@ public class LocationSetup {
         p.sendMessage(ChatColor.DARK_AQUA + "/set tf" + ChatColor.GRAY + " - " + ChatColor.GOLD + "Setzt TeamForce");
         p.sendMessage(ChatColor.DARK_AQUA + "/set spawn" + ChatColor.GRAY + " - " + ChatColor.GOLD + "Setzt den Spawn");
         p.sendMessage(ChatColor.DARK_AQUA + "/set newbie" + ChatColor.GRAY + " - " + ChatColor.GOLD + "Setzt den Newbie-Spawn");
-        p.sendMessage(ChatColor.DARK_AQUA + "/set pre" + ChatColor.GRAY + " - " + ChatColor.GOLD + "Setzt Premium-Bereich");
+        p.sendMessage(ChatColor.DARK_AQUA + "/set prem" + ChatColor.GRAY + " - " + ChatColor.GOLD + "Setzt Premium-Bereich");
         p.sendMessage(ChatColor.DARK_AQUA + "==============================");
         p.sendMessage(" ");
     }
