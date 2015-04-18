@@ -6,3 +6,8 @@ description: Lobbymanaging Plugin
 main: net.blockbreaker.lobby.Lobby
 load: POSTWORLD
 depend: [EffectLib, TitleAPI]
+
+commands:
+  holo:
+    aliases: h
+    description: Setzt Hologramme

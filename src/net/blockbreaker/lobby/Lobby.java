@@ -49,8 +49,8 @@ public class Lobby extends JavaPlugin {
         register.registerEvents(JoinListener.class, InventoryClick.class, Hunger.class, NavigatorInteract.class, NavigatorClickItem.class, PlayerDamage.class, HiderEvents.class, ItemEvents.class,
                                 SilentLobby.class, Shield.class, QuitListener.class, DoubleJump.class, IceMelt.class, EntityEvents.class, BlockEvents.class, InventoryEvents.class, PaintingEvents.class,
                                 KickListener.class, JumpPlates.class, Friends.class);
-        register.registerCommand("set", "Setzte alle Locations der Spielmodi", new SetCommand(), "server.set");
-        register.registerCommand("holo", "Setzt alle Hologramme", new SetCommand(), "server.setholo");
+        //register.registerCommand("set", "Setzte alle Locations der Spielmodi", new SetCommand(), "server.set");
+        register.registerCommand("holo", "Setzt alle Hologramme", new SetCommand(), "server.set.holo");
 
         //Erstellt Default MySQL Config´s und liest Daten aus
         MySQLFile file = new MySQLFile();

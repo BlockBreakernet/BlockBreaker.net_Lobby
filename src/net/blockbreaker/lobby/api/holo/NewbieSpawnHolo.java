@@ -1,8 +1,8 @@
 package net.blockbreaker.lobby.api.holo;
 
-import net.blockbreaker.lobby.api.player.Holograms;
+import com.gmail.filoghost.holographicdisplays.api.Hologram;
+import com.gmail.filoghost.holographicdisplays.object.NamedHologram;
 import net.blockbreaker.lobby.api.player.flyingitems.FlyingItem;
-import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
 
@@ -12,16 +12,11 @@ import org.bukkit.entity.Player;
 public class NewbieSpawnHolo {
 
     public static void setNewbieHolo1(Player p) {
-        String[] text = null;
-        text[0] = "1";
-        text[1] = "2";
-        Location loc = p.getLocation();
-
-        Holograms holo = new Holograms(text, loc);
-        holo.showAll();
+        Hologram holo = new NamedHologram(p.getLocation(), "Tewst");
+        holo.teleport(p.getLocation());
 
         FlyingItem flyi = new FlyingItem();
-        flyi.setLocation(loc);
+        flyi.setLocation(p.getLocation());
         flyi.setMaterial(Material.DIAMOND_SWORD);
         flyi.spawn();
     }

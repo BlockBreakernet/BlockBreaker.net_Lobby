@@ -13,9 +13,22 @@ public class SetHolo implements CommandExecutor {
 
     @Override
     public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
-        Player p = (Player) sender;
+        if(sender instanceof Player) {
+            Player p = (Player) sender;
+            System.out.println("1");
+            if(cmd.getName().equalsIgnoreCase("holo")) {
+                System.out.println("2");
+                if (p.hasPermission("server.set.holo")) {
+                    System.out.println("3");
+                    NewbieSpawnHolo.setNewbieHolo1(p);
+                    System.out.println("4");
+                    return true;
+                }
+            }
 
-        NewbieSpawnHolo.setNewbieHolo1(p);
+            return true;
+        }
+
         return true;
     }
 }

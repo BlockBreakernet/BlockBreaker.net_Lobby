@@ -2,6 +2,7 @@ package net.blockbreaker.lobby.system.events;
 
 import com.connorlinfoot.titleapi.TitleAPI;
 import net.blockbreaker.lobby.Lobby;
+import net.blockbreaker.lobby.api.custommobs.FrozenVillager;
 import net.blockbreaker.lobby.api.locations.NewbieSpawn;
 import net.blockbreaker.lobby.api.locations.Spawn;
 import net.blockbreaker.lobby.api.mysql.MySQLMethods;
@@ -48,5 +49,7 @@ public class JoinListener implements Listener {
         if (Bukkit.getOnlinePlayers().size() >= 1) {
             Lobby.getInstance().time = Bukkit.getScheduler().scheduleSyncRepeatingTask(Lobby.getInstance(), new TimeSync(), 0, 20 * 1);
         }
+
+        FrozenVillager.spawn(p.getLocation());
     }
 }
