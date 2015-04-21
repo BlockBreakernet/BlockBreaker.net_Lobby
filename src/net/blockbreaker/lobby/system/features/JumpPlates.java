@@ -41,7 +41,7 @@ public class JumpPlates implements Listener {
 
             if(p.getLocation().subtract(0.0D, 1.0D, 0.0D).getBlock().getType() == Material.GOLD_BLOCK) {
 
-                Vector v = p.getLocation().getDirection().multiply(7.0D).setY(1.0D);
+                Vector v = p.getLocation().getDirection().multiply(6.0D).setY(1.0D);
                 p.setVelocity(v);
 
                 ParticleEffect.PORTAL.display(p.getLocation(), 1, 1, 1, 1, 1, 50);
