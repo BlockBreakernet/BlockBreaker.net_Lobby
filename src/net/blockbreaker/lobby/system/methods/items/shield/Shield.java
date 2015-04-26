@@ -61,7 +61,7 @@ public class Shield implements Listener {
 
                                         Vector v = new Vector(x, y, z).normalize().multiply(1D).setY(1D);
 
-                                        if (target.hasPermission("server.bypass.schild") | target.isOp()) {
+                                        if (target.hasPermission("server.bypass.schild")) {
                                             return;
                                         } else {
                                             target.setVelocity(v);

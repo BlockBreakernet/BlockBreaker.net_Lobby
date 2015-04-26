@@ -1,8 +1,11 @@
 package net.blockbreaker.lobby.api.hologram;
 
+import net.blockbreaker.lobby.Lobby;
+import net.blockbreaker.lobby.system.commands.HoloCommand;
 import net.minecraft.server.v1_8_R2.EntityArmorStand;
 import net.minecraft.server.v1_8_R2.PacketPlayOutEntityDestroy;
 import net.minecraft.server.v1_8_R2.PacketPlayOutSpawnEntity;
+import net.minecraft.server.v1_8_R2.PacketPlayOutSpawnEntityLiving;
 import org.bukkit.Location;
 import org.bukkit.craftbukkit.v1_8_R2.CraftWorld;
 import org.bukkit.craftbukkit.v1_8_R2.entity.CraftPlayer;
@@ -47,8 +50,9 @@ public class Hologram {
     }
 
     public void show(Player p) {
-        PacketPlayOutSpawnEntity packet = new PacketPlayOutSpawnEntity(entity, 0);
+        PacketPlayOutSpawnEntityLiving packet = new PacketPlayOutSpawnEntityLiving(entity);
         ((CraftPlayer) p).getHandle().playerConnection.sendPacket(packet);
+
     }
 
     public void destroy(Player p) {

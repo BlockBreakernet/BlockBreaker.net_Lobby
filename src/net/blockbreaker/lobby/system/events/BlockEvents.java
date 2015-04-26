@@ -2,10 +2,7 @@ package net.blockbreaker.lobby.system.events;
 
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
-import org.bukkit.event.block.BlockDamageEvent;
-import org.bukkit.event.block.BlockExpEvent;
-import org.bukkit.event.block.EntityBlockFormEvent;
-import org.bukkit.event.block.NotePlayEvent;
+import org.bukkit.event.block.*;
 
 /**
  * Created by Lukas on 12.04.2015.
@@ -30,5 +27,10 @@ public class BlockEvents implements Listener {
     @EventHandler
     public void onExp(BlockExpEvent e) {
         e.setExpToDrop(0);
+    }
+
+    @EventHandler
+    public void onBlockFromToEvent(BlockFromToEvent e) {
+        e.setCancelled(true);
     }
 }
