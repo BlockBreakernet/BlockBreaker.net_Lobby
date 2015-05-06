@@ -1,5 +1,6 @@
 package net.blockbreaker.lobby.system.events;
 
+import net.blockbreaker.lobby.api.locations.Spawn;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.*;
@@ -52,5 +53,12 @@ public class PlayerEvents implements Listener {
     @EventHandler
     public void onPlayerInteractEvent(PlayerInteractEvent e) {
         e.setCancelled(true);
+    }
+
+    @EventHandler
+    public void onMoveToLow(PlayerMoveEvent e) {
+        if(e.getPlayer().getLocation().getY() < 10) {
+            Spawn.teleport(e.getPlayer());
+        }
     }
 }
