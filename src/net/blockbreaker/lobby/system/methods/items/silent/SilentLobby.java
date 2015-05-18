@@ -23,6 +23,7 @@ public class SilentLobby implements Listener {
                     Server.join(p, "silent");
                 }
             } catch(Exception ex) {
+                p.sendMessage(ChatColor.DARK_RED + "Die Silent-Lobby ist momentan leider nicht erreichbar.");
             }
         }
     }
